@@ -33,4 +33,3 @@ bin/
 run/
 
 /remappedSrc/*
-/gradle/*
