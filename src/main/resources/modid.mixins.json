@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mrjoshuat.fabricrandomentities.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "client": [
+    "EntityMixin",
+    "EyesFeatureRendererMixin",
+    "LivingEntityRendererMixin",
+    "MultiPhaseParametersAccessor",
+    "VillagerClothingFeatureRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
