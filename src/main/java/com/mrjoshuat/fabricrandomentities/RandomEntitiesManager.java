@@ -11,6 +11,12 @@ public class RandomEntitiesManager {
     private static HashMap<Integer, Identifier> cacheTextureMap = new HashMap<>();
     private static HashMap<Integer, Identifier> cacheEmissiveMap = new HashMap<>();
 
+    public static void clearCache() {
+        cacheTextureMap.clear();
+        cacheEmissiveMap.clear();
+        RandomProperties.randomEntityProperties.clear();
+    }
+
     public static Identifier getRandomTexture(Entity entity, Identifier original) {
         // NOTE: villagers will call this method 3 times, so we cannot return the same texture, shucks, needs looking into
         //if (cacheTextureMap.containsKey(entity.getId()))
@@ -31,7 +37,7 @@ public class RandomEntitiesManager {
         // did we do an initial random cache?
         if (!cacheTextureMap.containsKey(entity.getId()))
             return null;
-        // did we already try finding a emissive texture?
+        // did we already try finding an emissive texture?
         if (cacheEmissiveMap.containsKey(entity.getId()))
             return cacheEmissiveMap.get(entity.getId());
         // do we have a properties file for this original?

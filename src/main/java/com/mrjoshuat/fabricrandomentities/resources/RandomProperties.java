@@ -1,7 +1,7 @@
 package com.mrjoshuat.fabricrandomentities.resources;
 
-import ca.weblite.objc.Client;
 import com.mrjoshuat.fabricrandomentities.ClientMod;
+import com.mrjoshuat.fabricrandomentities.RandomEntitiesManager;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.resource.ResourceManager;
@@ -38,6 +38,8 @@ public class RandomProperties {
                 Set<String> basePaths = new HashSet();
 
                 manager.streamResourcePacks().forEach(pack -> {
+                    RandomEntitiesManager.clearCache();
+
                     for (var namespace : pack.getNamespaces(ResourceType.CLIENT_RESOURCES)) {
                         var ids = pack.findResources(ResourceType.CLIENT_RESOURCES, namespace, Optifine,
                             Integer.MAX_VALUE, path -> (path.endsWith(".properties") || path.endsWith(".png")) && !path.endsWith("emissive.properties"));
